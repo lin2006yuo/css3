@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrapper{
+            margin: 50px auto;
+            width: 300px;
+            height: 300px;
+            position: relative;
+            border-radius: 50%
+        }
+        .img,.text{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%
+        }
+        /* .img::after{
+            content: "";
+            position:absolute;
+            left: 0;top: 0;width: 100%;height: 100%;
+            border-color: orange orange green green;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.5)
+        } */
+        .img img{
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+            border-radius: 50%;
+            transition: 0.3s 0.1s;
+            transform-origin: right center;
+            transform: rotateY(0);
+            
+        }
+        .text{
+            position: relative;
+            z-index: 3;
+            transition: 0.8s;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            opacity: 0.5;
+            pointer-events: none;     /* 防抖 */
+            transform-origin: left center;
+            transform: rotateY(90deg);
+            /* transform: rotate(45deg) */
+        }
+        .wrapper:hover img{
+            transform:  rotateY(90deg);
+            opacity: 0;
+        }
+        .wrapper:hover .text{
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+    </style>
+    <title>Transition</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="img"><img src="https://dummyimage.com/250/ED896F/000000" alt=""></div>
+        <div class="text">11</div>
+    </div>
+</body>
+</html>
